@@ -29,6 +29,22 @@ const SnippetCardStack = ({ snippets, onSnippetSelect }) => {
     }, 300);
   };
 
+  const handleCardClick = (snippet, index) => {
+    if (index === currentIndex) {
+      // If clicking the active card, just update the snippet viewer
+      onSnippetSelect(snippet);
+    } else {
+      // If clicking a different card, animate to it
+      const direction = index > currentIndex ? 'next' : 'prev';
+      setDirection(direction);
+      setTimeout(() => {
+        setCurrentIndex(index);
+        onSnippetSelect(snippet);
+        setDirection('');
+      }, 300);
+    }
+  };
+
   return (
     <div className="snippet-card-stack">
       <div className="stack-container">
@@ -57,6 +73,7 @@ const SnippetCardStack = ({ snippets, onSnippetSelect }) => {
                 zIndex: snippets.length - Math.abs(position),
                 '--position': position,
               }}
+              onClick={() => handleCardClick(snippet, index)}
             >
               <div className="stack-card-content">
                 <div className="stack-card-thumbnail">{snippet.thumbnail}</div>
