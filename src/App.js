@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import SnippetViewer from './components/SnippetViewer';
 import LikedSnippetsList from './components/LikedSnippetsList';
+import SnippetCardStack from './components/SnippetCardStack';
 import { storage } from './utils/storage';
 import { getRandomSnippets, getRandomLikedSnippet } from './utils/mockData';
 
@@ -69,7 +70,6 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <h1>📚 Commute Recaps</h1>
-          <p>Learn something new during your commute</p>
         </div>
       </header>
 
@@ -93,18 +93,10 @@ function App() {
           {dailySnippets.length > 0 && (
             <div className="daily-snippets-selector">
               <label>Your Daily Snippets:</label>
-              <div className="snippet-buttons">
-                {dailySnippets.map((snippet, index) => (
-                  <button
-                    key={snippet.id}
-                    className={`snippet-btn ${currentSnippet?.id === snippet.id ? 'active' : ''}`}
-                    onClick={() => setCurrentSnippet(snippet)}
-                  >
-                    <span className="snippet-emoji">{snippet.thumbnail}</span>
-                    <span className="snippet-title">{snippet.title}</span>
-                  </button>
-                ))}
-              </div>
+              <SnippetCardStack
+                snippets={dailySnippets}
+                onSnippetSelect={setCurrentSnippet}
+              />
             </div>
           )}
         </div>

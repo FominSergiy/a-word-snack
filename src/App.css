@@ -10,6 +10,12 @@
   color: white;
 }
 
+/* .header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
 .header-content h1 {
   font-size: 42px;
   margin: 0 0 10px 0;
@@ -90,52 +96,11 @@
   display: block;
   font-weight: 600;
   color: #333;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.snippet-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.snippet-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: #f8f9fa;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 15px;
-  min-width: 200px;
-}
-
-.snippet-btn:hover {
-  background: #e9ecef;
-  transform: translateY(-2px);
-}
-
-.snippet-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-color: #667eea;
-}
-
-.snippet-emoji {
-  font-size: 24px;
-}
-
-.snippet-title {
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .content-area {
@@ -210,13 +175,6 @@
     justify-content: center;
   }
 
-  .snippet-buttons {
-    flex-direction: column;
-  }
-
-  .snippet-btn {
-    width: 100%;
-  }
 
   .my-likes-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
